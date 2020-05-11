@@ -14,7 +14,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woop_app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="VQi-uS-Kd5">
+                                <rect key="frame" x="107" y="353" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="dVA-gR-lqW"/>
+                                    <constraint firstAttribute="height" constant="200" id="ecl-TS-PTg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.41658716126817735" green="0.88975612362797929" blue="0.4815203365259203" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="VQi-uS-Kd5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DmU-xe-5N3"/>
+                            <constraint firstItem="VQi-uS-Kd5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xBT-4s-WAk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -23,4 +36,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="woop_app_logo" width="512" height="512"/>
+    </resources>
 </document>
