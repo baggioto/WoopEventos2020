@@ -1,0 +1,6 @@
+framework module Pods_Woop_Sicredi {
+  umbrella header "Pods-Woop Sicredi-umbrella.h"
+
+  export *
+  module * { export * }
+}

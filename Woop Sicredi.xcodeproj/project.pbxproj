@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17DA6EB566870E3A7A797F44 /* Pods_Woop_Sicredi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52794A9E5C3BDDBC4AE182DF /* Pods_Woop_Sicredi.framework */; };
+		D9053EF42468B855006A7DDE /* MainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */; };
+		D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DAFE245F737B001B0923 /* AppDelegate.swift */; };
+		D933DB03245F737B001B0923 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB02245F737B001B0923 /* MainViewController.swift */; };
+		D933DB08245F737C001B0923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D933DB07245F737C001B0923 /* Assets.xcassets */; };
+		D933DB0B245F737C001B0923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D933DB09245F737C001B0923 /* LaunchScreen.storyboard */; };
+		D933DB15245F7721001B0923 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB14245F7721001B0923 /* MainView.swift */; };
+		D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB17245F7ED3001B0923 /* WoopBaseService.swift */; };
+		D933DB1A245F806F001B0923 /* ServiceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D933DB19245F806F001B0923 /* ServiceData.plist */; };
+		D933DB1C245F826A001B0923 /* WoopEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1B245F826A001B0923 /* WoopEventsService.swift */; };
+		D933DB1E245F8367001B0923 /* WoopNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1D245F8367001B0923 /* WoopNetworkService.swift */; };
+		D933DB20245F84BC001B0923 /* WoopRequestErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1F245F84BC001B0923 /* WoopRequestErrorModel.swift */; };
+		D97B6DB6245F873B00EBC8F8 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B6DB5245F873B00EBC8F8 /* AlamofireExtensions.swift */; };
+		D97B6DB8245F887B00EBC8F8 /* WoopUserNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B6DB7245F887B00EBC8F8 /* WoopUserNetworkService.swift */; };
+		D97B6DBA245F895C00EBC8F8 /* DataResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B6DB9245F895C00EBC8F8 /* DataResponseExtensions.swift */; };
+		D9D1AB102468CC4100E54063 /* MainTableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */; };
+		D9D1AB122468D5AC00E54063 /* MainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB112468D5AC00E54063 /* MainTableViewHeader.swift */; };
+		D9D1AB152468E7E300E54063 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB142468E7E300E54063 /* EventDetailView.swift */; };
+		D9D1AB172468E87400E54063 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB162468E87400E54063 /* EventDetailViewController.swift */; };
+		D9D1AB192468E8A000E54063 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB182468E8A000E54063 /* EventDetailViewModel.swift */; };
+		D9D1AB1B24690B1700E54063 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */; };
+		D9DB5A7E245F97260078AA87 /* Cupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB5A7D245F97260078AA87 /* Cupon.swift */; };
+		D9DB5A80245F97FF0078AA87 /* WoopEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB5A7F245F97FF0078AA87 /* WoopEvent.swift */; };
+		D9DB5A82245F98930078AA87 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB5A81245F98930078AA87 /* People.swift */; };
+		D9DB5A862460344D0078AA87 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB5A852460344D0078AA87 /* MainViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A9AB121804A87F287A2ECFA /* Pods-Woop Sicredi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woop Sicredi.release.xcconfig"; path = "Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi.release.xcconfig"; sourceTree = "<group>"; };
+		52794A9E5C3BDDBC4AE182DF /* Pods_Woop_Sicredi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woop_Sicredi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DCEB19D732DF8DBAB75DD3E /* Pods-Woop Sicredi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woop Sicredi.debug.xcconfig"; path = "Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi.debug.xcconfig"; sourceTree = "<group>"; };
+		D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableViewCell.swift; sourceTree = "<group>"; };
+		D933DAFB245F737B001B0923 /* Woop Sicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woop Sicredi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D933DAFE245F737B001B0923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D933DB02245F737B001B0923 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D933DB07245F737C001B0923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D933DB0A245F737C001B0923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D933DB0C245F737C001B0923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D933DB14245F7721001B0923 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D933DB17245F7ED3001B0923 /* WoopBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopBaseService.swift; sourceTree = "<group>"; };
+		D933DB19245F806F001B0923 /* ServiceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServiceData.plist; sourceTree = "<group>"; };
+		D933DB1B245F826A001B0923 /* WoopEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopEventsService.swift; sourceTree = "<group>"; };
+		D933DB1D245F8367001B0923 /* WoopNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopNetworkService.swift; sourceTree = "<group>"; };
+		D933DB1F245F84BC001B0923 /* WoopRequestErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopRequestErrorModel.swift; sourceTree = "<group>"; };
+		D97B6DB5245F873B00EBC8F8 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
+		D97B6DB7245F887B00EBC8F8 /* WoopUserNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopUserNetworkService.swift; sourceTree = "<group>"; };
+		D97B6DB9245F895C00EBC8F8 /* DataResponseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponseExtensions.swift; sourceTree = "<group>"; };
+		D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewLayout.swift; sourceTree = "<group>"; };
+		D9D1AB112468D5AC00E54063 /* MainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeader.swift; sourceTree = "<group>"; };
+		D9D1AB142468E7E300E54063 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		D9D1AB162468E87400E54063 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		D9D1AB182468E8A000E54063 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		D9DB5A7D245F97260078AA87 /* Cupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cupon.swift; sourceTree = "<group>"; };
+		D9DB5A7F245F97FF0078AA87 /* WoopEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopEvent.swift; sourceTree = "<group>"; };
+		D9DB5A81245F98930078AA87 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		D9DB5A852460344D0078AA87 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D933DAF8245F737B001B0923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17DA6EB566870E3A7A797F44 /* Pods_Woop_Sicredi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B5E96A810875AC5FBC832B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DCEB19D732DF8DBAB75DD3E /* Pods-Woop Sicredi.debug.xcconfig */,
+				4A9AB121804A87F287A2ECFA /* Pods-Woop Sicredi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9053EF22468B82B006A7DDE /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */,
+				D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */,
+				D9D1AB112468D5AC00E54063 /* MainTableViewHeader.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		D933DAF2245F737B001B0923 = {
+			isa = PBXGroup;
+			children = (
+				D933DAFD245F737B001B0923 /* Woop Sicredi */,
+				D933DAFC245F737B001B0923 /* Products */,
+				3B5E96A810875AC5FBC832B3 /* Pods */,
+				EB7DDFE7975ABD0BBB96F2A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D933DAFC245F737B001B0923 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D933DAFB245F737B001B0923 /* Woop Sicredi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D933DAFD245F737B001B0923 /* Woop Sicredi */ = {
+			isa = PBXGroup;
+			children = (
+				D9DB5A7C245F96890078AA87 /* Model */,
+				D933DB16245F7EBA001B0923 /* Service */,
+				D933DB12245F76F3001B0923 /* Controllers and Views */,
+				D933DAFE245F737B001B0923 /* AppDelegate.swift */,
+				D933DB07245F737C001B0923 /* Assets.xcassets */,
+				D933DB09245F737C001B0923 /* LaunchScreen.storyboard */,
+				D933DB0C245F737C001B0923 /* Info.plist */,
+			);
+			path = "Woop Sicredi";
+			sourceTree = "<group>";
+		};
+		D933DB12245F76F3001B0923 /* Controllers and Views */ = {
+			isa = PBXGroup;
+			children = (
+				D9D1AB132468E7AC00E54063 /* EventDetail */,
+				D9053EF22468B82B006A7DDE /* CustomViews */,
+				D933DB13245F7707001B0923 /* Main */,
+			);
+			path = "Controllers and Views";
+			sourceTree = "<group>";
+		};
+		D933DB13245F7707001B0923 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D933DB02245F737B001B0923 /* MainViewController.swift */,
+				D933DB14245F7721001B0923 /* MainView.swift */,
+				D9DB5A852460344D0078AA87 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D933DB16245F7EBA001B0923 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D97B6DBC245F89F900EBC8F8 /* BaseSetup */,
+				D97B6DBB245F89D700EBC8F8 /* Extensions */,
+				D933DB1B245F826A001B0923 /* WoopEventsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D97B6DBB245F89D700EBC8F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D97B6DB9245F895C00EBC8F8 /* DataResponseExtensions.swift */,
+				D97B6DB5245F873B00EBC8F8 /* AlamofireExtensions.swift */,
+				D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D97B6DBC245F89F900EBC8F8 /* BaseSetup */ = {
+			isa = PBXGroup;
+			children = (
+				D933DB17245F7ED3001B0923 /* WoopBaseService.swift */,
+				D933DB19245F806F001B0923 /* ServiceData.plist */,
+				D933DB1D245F8367001B0923 /* WoopNetworkService.swift */,
+				D933DB1F245F84BC001B0923 /* WoopRequestErrorModel.swift */,
+				D97B6DB7245F887B00EBC8F8 /* WoopUserNetworkService.swift */,
+			);
+			path = BaseSetup;
+			sourceTree = "<group>";
+		};
+		D9D1AB132468E7AC00E54063 /* EventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D9D1AB142468E7E300E54063 /* EventDetailView.swift */,
+				D9D1AB162468E87400E54063 /* EventDetailViewController.swift */,
+				D9D1AB182468E8A000E54063 /* EventDetailViewModel.swift */,
+			);
+			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		D9DB5A7C245F96890078AA87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9DB5A7D245F97260078AA87 /* Cupon.swift */,
+				D9DB5A7F245F97FF0078AA87 /* WoopEvent.swift */,
+				D9DB5A81245F98930078AA87 /* People.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB7DDFE7975ABD0BBB96F2A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52794A9E5C3BDDBC4AE182DF /* Pods_Woop_Sicredi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D933DAFA245F737B001B0923 /* Woop Sicredi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D933DB0F245F737C001B0923 /* Build configuration list for PBXNativeTarget "Woop Sicredi" */;
+			buildPhases = (
+				4E5B2F16C63ADB65C00E882E /* [CP] Check Pods Manifest.lock */,
+				D933DAF7245F737B001B0923 /* Sources */,
+				D933DAF8245F737B001B0923 /* Frameworks */,
+				D933DAF9245F737B001B0923 /* Resources */,
+				282D0FCE9EA7100420DFE96A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Woop Sicredi";
+			productName = "Woop Sicredi";
+			productReference = D933DAFB245F737B001B0923 /* Woop Sicredi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D933DAF3245F737B001B0923 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Sicredi;
+				TargetAttributes = {
+					D933DAFA245F737B001B0923 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = D933DAF6245F737B001B0923 /* Build configuration list for PBXProject "Woop Sicredi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D933DAF2245F737B001B0923;
+			productRefGroup = D933DAFC245F737B001B0923 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D933DAFA245F737B001B0923 /* Woop Sicredi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D933DAF9245F737B001B0923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D933DB0B245F737C001B0923 /* LaunchScreen.storyboard in Resources */,
+				D933DB08245F737C001B0923 /* Assets.xcassets in Resources */,
+				D933DB1A245F806F001B0923 /* ServiceData.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		282D0FCE9EA7100420DFE96A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E5B2F16C63ADB65C00E882E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Woop Sicredi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D933DAF7245F737B001B0923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9DB5A7E245F97260078AA87 /* Cupon.swift in Sources */,
+				D9D1AB172468E87400E54063 /* EventDetailViewController.swift in Sources */,
+				D933DB03245F737B001B0923 /* MainViewController.swift in Sources */,
+				D933DB15245F7721001B0923 /* MainView.swift in Sources */,
+				D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */,
+				D9DB5A80245F97FF0078AA87 /* WoopEvent.swift in Sources */,
+				D9D1AB1B24690B1700E54063 /* UIButtonExtensions.swift in Sources */,
+				D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */,
+				D97B6DB6245F873B00EBC8F8 /* AlamofireExtensions.swift in Sources */,
+				D9DB5A862460344D0078AA87 /* MainViewModel.swift in Sources */,
+				D97B6DB8245F887B00EBC8F8 /* WoopUserNetworkService.swift in Sources */,
+				D9D1AB122468D5AC00E54063 /* MainTableViewHeader.swift in Sources */,
+				D97B6DBA245F895C00EBC8F8 /* DataResponseExtensions.swift in Sources */,
+				D9D1AB102468CC4100E54063 /* MainTableViewLayout.swift in Sources */,
+				D933DB1C245F826A001B0923 /* WoopEventsService.swift in Sources */,
+				D9D1AB192468E8A000E54063 /* EventDetailViewModel.swift in Sources */,
+				D933DB1E245F8367001B0923 /* WoopNetworkService.swift in Sources */,
+				D9D1AB152468E7E300E54063 /* EventDetailView.swift in Sources */,
+				D933DB20245F84BC001B0923 /* WoopRequestErrorModel.swift in Sources */,
+				D9DB5A82245F98930078AA87 /* People.swift in Sources */,
+				D9053EF42468B855006A7DDE /* MainViewTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D933DB09245F737C001B0923 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D933DB0A245F737C001B0923 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D933DB0D245F737C001B0923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D933DB0E245F737C001B0923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D933DB10245F737C001B0923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DCEB19D732DF8DBAB75DD3E /* Pods-Woop Sicredi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Woop Sicredi/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.woop.Woop-Sicredi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D933DB11245F737C001B0923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A9AB121804A87F287A2ECFA /* Pods-Woop Sicredi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Woop Sicredi/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.woop.Woop-Sicredi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D933DAF6245F737B001B0923 /* Build configuration list for PBXProject "Woop Sicredi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D933DB0D245F737C001B0923 /* Debug */,
+				D933DB0E245F737C001B0923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D933DB0F245F737C001B0923 /* Build configuration list for PBXNativeTarget "Woop Sicredi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D933DB10245F737C001B0923 /* Debug */,
+				D933DB11245F737C001B0923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D933DAF3245F737B001B0923 /* Project object */;
+}
