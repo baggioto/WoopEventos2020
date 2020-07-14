@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Alamofire
 
-class WoopEventsService: NSObject {
+class WoopEventsService {
     
     private static var _instance: WoopEventsService? = nil
     
@@ -34,63 +34,69 @@ class WoopEventsService: NSObject {
         "\(baseApiUrl)/events/%d"
     }
     
+    enum FailureReason: Int, Error {
+        case unAuthorized = 401
+        case notFound = 404
+        case serverError = 500
+    }
+    
     public func getDetailedEvent(eventId: Int) -> Observable<WoopEvent> {
-        return Observable<WoopEvent>.create { (observable) -> Disposable in
-            
-            WoopUserNetworkService.sharedInstance.requestJson(String(format: self.eventDetailApiUrl, eventId)) { (err, res) in
-                if let error = err {
-                    print(error)
-                    observable.onError(error)
+            return Observable.create { observer -> Disposable in
+                Alamofire.request(String(format: self.eventDetailApiUrl, eventId))
+                    .validate()
+                    .responseJSON { response in
+                        switch response.result {
+                        case .success:
+                            guard let data = response.data else {
+                                observer.onError(response.error ?? FailureReason.notFound)
+                                return
+                            }
+                            do {
+                                let event = try JSONDecoder().decode(WoopEvent.self, from: data)
+                                observer.onNext(event)
+                            } catch {
+                                observer.onError(error)
+                            }
+                        case .failure(let error):
+                            if let statusCode = response.response?.statusCode,
+                                let reason = FailureReason(rawValue: statusCode)
+                            {
+                                observer.onError(reason)
+                            }
+                            observer.onError(error)
+                        }
                 }
-                
-                if let data = res?.data {
-                    do {
-                        
-                        let json: [String : Any] = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
-                        let correctEvent: WoopEvent = WoopEvent(with: json)
-                        
-                        observable.onNext(correctEvent)
-                    } catch {
-                        observable.onError(error)
-                    }
-                }
-                observable.onCompleted()
+                return Disposables.create()
             }
-            return Disposables.create{}
-        }
     }
     
     public func getEvents() -> Observable<[WoopEvent]> {
-        return Observable<[WoopEvent]>.create { (observable) -> Disposable in
-            
-            WoopUserNetworkService.sharedInstance.requestJson(self.eventsApiUrl) { (err, res) in
-                if let error = err {
-                    print(error)
-                    observable.onError(error)
-                }
-                
-                if let data = res?.data {
-                    do {
-                        
-                        let json: [[String : Any]] = try JSONSerialization.jsonObject(with: data, options: []) as! [[String : Any]]
-                        
-                        var events: [WoopEvent] = []
-                        
-                        for event in json {
-                            
-                            let correctEvent: WoopEvent = WoopEvent(with: event)
-                            events.append(correctEvent)
-                            
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(self.eventsApiUrl)
+                .validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        guard let data = response.data else {
+                            observer.onError(response.error ?? FailureReason.notFound)
+                            return
                         }
-                        
-                        observable.onNext(events)
-                    } catch {
-                        observable.onError(error)
+                        do {
+                            let event = try JSONDecoder().decode([WoopEvent].self, from: data)
+                            observer.onNext(event)
+                        } catch {
+                            observer.onError(error)
+                        }
+                    case .failure(let error):
+                        if let statusCode = response.response?.statusCode,
+                            let reason = FailureReason(rawValue: statusCode)
+                        {
+                            observer.onError(reason)
+                        }
+                        observer.onError(error)
                     }
-                }
-                observable.onCompleted()
             }
-            return Disposables.create{}
+            return Disposables.create()
         }
     }
     

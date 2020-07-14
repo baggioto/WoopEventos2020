@@ -8,17 +8,14 @@
 
 import Foundation
 
-class Cupon {
-    var eventId:String!
-    var dicount:Double!
-    var cuponId:String!
+struct Cupon: Decodable {
+    var eventId:String
+    var discount:Double
+    var cuponId:String
     
-    init(with dictionary: [String: Any]?){
-        guard let dictionary = dictionary else { return }
-        
-        self.eventId = dictionary["eventId"] as? String
-        self.dicount = dictionary["dicount"] as? Double
-        self.cuponId = dictionary["id"] as? String
-        
+    enum CodingKeys: String, CodingKey {
+        case eventId = "eventId"
+        case discount = "discount"
+        case cuponId = "id"
     }
 }

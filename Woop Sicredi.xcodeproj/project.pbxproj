@@ -17,11 +17,6 @@
 		D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB17245F7ED3001B0923 /* WoopBaseService.swift */; };
 		D933DB1A245F806F001B0923 /* ServiceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D933DB19245F806F001B0923 /* ServiceData.plist */; };
 		D933DB1C245F826A001B0923 /* WoopEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1B245F826A001B0923 /* WoopEventsService.swift */; };
-		D933DB1E245F8367001B0923 /* WoopNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1D245F8367001B0923 /* WoopNetworkService.swift */; };
-		D933DB20245F84BC001B0923 /* WoopRequestErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1F245F84BC001B0923 /* WoopRequestErrorModel.swift */; };
-		D97B6DB6245F873B00EBC8F8 /* AlamofireExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B6DB5245F873B00EBC8F8 /* AlamofireExtensions.swift */; };
-		D97B6DB8245F887B00EBC8F8 /* WoopUserNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B6DB7245F887B00EBC8F8 /* WoopUserNetworkService.swift */; };
-		D97B6DBA245F895C00EBC8F8 /* DataResponseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97B6DB9245F895C00EBC8F8 /* DataResponseExtensions.swift */; };
 		D9D1AB102468CC4100E54063 /* MainTableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */; };
 		D9D1AB122468D5AC00E54063 /* MainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB112468D5AC00E54063 /* MainTableViewHeader.swift */; };
 		D9D1AB152468E7E300E54063 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB142468E7E300E54063 /* EventDetailView.swift */; };
@@ -49,11 +44,6 @@
 		D933DB17245F7ED3001B0923 /* WoopBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopBaseService.swift; sourceTree = "<group>"; };
 		D933DB19245F806F001B0923 /* ServiceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServiceData.plist; sourceTree = "<group>"; };
 		D933DB1B245F826A001B0923 /* WoopEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopEventsService.swift; sourceTree = "<group>"; };
-		D933DB1D245F8367001B0923 /* WoopNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopNetworkService.swift; sourceTree = "<group>"; };
-		D933DB1F245F84BC001B0923 /* WoopRequestErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopRequestErrorModel.swift; sourceTree = "<group>"; };
-		D97B6DB5245F873B00EBC8F8 /* AlamofireExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireExtensions.swift; sourceTree = "<group>"; };
-		D97B6DB7245F887B00EBC8F8 /* WoopUserNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopUserNetworkService.swift; sourceTree = "<group>"; };
-		D97B6DB9245F895C00EBC8F8 /* DataResponseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponseExtensions.swift; sourceTree = "<group>"; };
 		D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewLayout.swift; sourceTree = "<group>"; };
 		D9D1AB112468D5AC00E54063 /* MainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeader.swift; sourceTree = "<group>"; };
 		D9D1AB142468E7E300E54063 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
@@ -118,6 +108,7 @@
 		D933DAFD245F737B001B0923 /* Woop Sicredi */ = {
 			isa = PBXGroup;
 			children = (
+				D97B6DBB245F89D700EBC8F8 /* Extensions */,
 				D9DB5A7C245F96890078AA87 /* Model */,
 				D933DB16245F7EBA001B0923 /* Service */,
 				D933DB12245F76F3001B0923 /* Controllers and Views */,
@@ -152,9 +143,9 @@
 		D933DB16245F7EBA001B0923 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				D97B6DBC245F89F900EBC8F8 /* BaseSetup */,
-				D97B6DBB245F89D700EBC8F8 /* Extensions */,
 				D933DB1B245F826A001B0923 /* WoopEventsService.swift */,
+				D933DB17245F7ED3001B0923 /* WoopBaseService.swift */,
+				D933DB19245F806F001B0923 /* ServiceData.plist */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -162,23 +153,9 @@
 		D97B6DBB245F89D700EBC8F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D97B6DB9245F895C00EBC8F8 /* DataResponseExtensions.swift */,
-				D97B6DB5245F873B00EBC8F8 /* AlamofireExtensions.swift */,
 				D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D97B6DBC245F89F900EBC8F8 /* BaseSetup */ = {
-			isa = PBXGroup;
-			children = (
-				D933DB17245F7ED3001B0923 /* WoopBaseService.swift */,
-				D933DB19245F806F001B0923 /* ServiceData.plist */,
-				D933DB1D245F8367001B0923 /* WoopNetworkService.swift */,
-				D933DB1F245F84BC001B0923 /* WoopRequestErrorModel.swift */,
-				D97B6DB7245F887B00EBC8F8 /* WoopUserNetworkService.swift */,
-			);
-			path = BaseSetup;
 			sourceTree = "<group>";
 		};
 		D9D1AB132468E7AC00E54063 /* EventDetail */ = {
@@ -332,17 +309,12 @@
 				D9DB5A80245F97FF0078AA87 /* WoopEvent.swift in Sources */,
 				D9D1AB1B24690B1700E54063 /* UIButtonExtensions.swift in Sources */,
 				D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */,
-				D97B6DB6245F873B00EBC8F8 /* AlamofireExtensions.swift in Sources */,
 				D9DB5A862460344D0078AA87 /* MainViewModel.swift in Sources */,
-				D97B6DB8245F887B00EBC8F8 /* WoopUserNetworkService.swift in Sources */,
 				D9D1AB122468D5AC00E54063 /* MainTableViewHeader.swift in Sources */,
-				D97B6DBA245F895C00EBC8F8 /* DataResponseExtensions.swift in Sources */,
 				D9D1AB102468CC4100E54063 /* MainTableViewLayout.swift in Sources */,
 				D933DB1C245F826A001B0923 /* WoopEventsService.swift in Sources */,
 				D9D1AB192468E8A000E54063 /* EventDetailViewModel.swift in Sources */,
-				D933DB1E245F8367001B0923 /* WoopNetworkService.swift in Sources */,
 				D9D1AB152468E7E300E54063 /* EventDetailView.swift in Sources */,
-				D933DB20245F84BC001B0923 /* WoopRequestErrorModel.swift in Sources */,
 				D9DB5A82245F98930078AA87 /* People.swift in Sources */,
 				D9053EF42468B855006A7DDE /* MainViewTableViewCell.swift in Sources */,
 			);

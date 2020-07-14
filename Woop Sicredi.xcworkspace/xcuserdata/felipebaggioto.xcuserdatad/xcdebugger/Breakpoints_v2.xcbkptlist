@@ -23,16 +23,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B250D18-C6C9-4E85-9229-0C1798868299"
-            shouldBeEnabled = "No"
+            uuid = "9A2EDF2F-4BA7-44AF-B9BA-5A6D592E833E"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Woop Sicredi/Service/BaseSetup/WoopNetworkService.swift"
+            filePath = "Woop Sicredi/Service/WoopEventsService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "requestJson(_:method:parameters:encoding:headers:completion:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "getDetailedEvent(eventId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C2E3E40-93E4-4AAE-83D6-A5A3A1C575E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Woop Sicredi/Service/WoopEventsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "getEvents()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
