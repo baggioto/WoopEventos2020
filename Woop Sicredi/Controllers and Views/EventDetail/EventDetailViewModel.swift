@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 

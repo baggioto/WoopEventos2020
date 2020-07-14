@@ -53,14 +53,12 @@ class MainView: UIView {
     }
     
     private func setupTableViewConstraints() {
-        
         NSLayoutConstraint.activate([
             eventsTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             eventsTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             eventsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             eventsTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-        
     }
     
 }

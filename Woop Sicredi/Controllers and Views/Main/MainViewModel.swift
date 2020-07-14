@@ -52,6 +52,5 @@ class MainViewModel: ViewModelType {
                 }, onError: { _ in
                     //TOAST ?
             }).disposed(by: self.disposeBag)
-        
     }
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 import RxCocoa
 
@@ -44,58 +43,47 @@ class EventDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print(viewModelOutput)
         
         setupBinding()
         onViewDidLoad.accept(())
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupNavigationBarSettings()
+    }
+    
+    private func setupNavigationBarSettings() {
         guard let navController = navigationController else {
             return
         }
         
-        navController.setNavigationBarHidden(false, animated: animated)
-        
+        navController.setNavigationBarHidden(false, animated: true)
         navController.navigationBar.alpha = 0.1
-        
         navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navController.navigationBar.shadowImage = UIImage()
         navController.navigationBar.isTranslucent = true
         navController.navigationBar.isUserInteractionEnabled = false
-        
         navController.navigationBar.tintColor = UIColor.black
-        
-        self.navigationItem.setHidesBackButton(true, animated: true);
-        
-        
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func setupBinding() {
-        
         setupViewChangesBindings()
         setupShareBindings()
         setupBackButtonBindings()
     }
     
     private func setupBackButtonBindings() {
-        
         customView
             .backButton
             .rx.tap.subscribe(onNext: { [weak self] _ in
-                
                 self?.navigationController?.popViewController(animated: true)
-                
             }).disposed(by: disposeBag)
-        
     }
     
     private func setupShareBindings() {
-        
         customView
             .shareButton
             .rx.tap.subscribe(onNext: { [weak self] _ in
@@ -111,28 +99,21 @@ class EventDetailViewController: UIViewController{
                 self?.present(activityViewController, animated: true, completion: nil)
                 
             }).disposed(by: disposeBag)
-        
     }
     
     private func setupViewChangesBindings() {
-        
         viewModel
             .event
             .asObservable()
             .subscribe(onNext: { [weak self] model in
-                
                 guard let modelValue = model else {
                     return
                 }
-                
                 self?.changeViewBasedOnEvent(modelValue)
-                
             }).disposed(by: disposeBag)
-        
     }
     
     private func changeViewBasedOnEvent(_ event: WoopEvent) {
-        
         guard let correctURL = URL(string: event.image) else {
             return
         }

@@ -40,33 +40,33 @@ class WoopEventsService {
     }
     
     public func getDetailedEvent(eventId: Int) -> Observable<WoopEvent> {
-            return Observable.create { observer -> Disposable in
-                Alamofire.request(String(format: self.eventDetailApiUrl, eventId))
-                    .validate()
-                    .responseJSON { response in
-                        switch response.result {
-                        case .success:
-                            guard let data = response.data else {
-                                observer.onError(response.error ?? FailureReason.notFound)
-                                return
-                            }
-                            do {
-                                let event = try JSONDecoder().decode(WoopEvent.self, from: data)
-                                observer.onNext(event)
-                            } catch {
-                                observer.onError(error)
-                            }
-                        case .failure(let error):
-                            if let statusCode = response.response?.statusCode,
-                                let reason = FailureReason(rawValue: statusCode)
-                            {
-                                observer.onError(reason)
-                            }
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(String(format: self.eventDetailApiUrl, eventId))
+                .validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        guard let data = response.data else {
+                            observer.onError(response.error ?? FailureReason.notFound)
+                            return
+                        }
+                        do {
+                            let event = try JSONDecoder().decode(WoopEvent.self, from: data)
+                            observer.onNext(event)
+                        } catch {
                             observer.onError(error)
                         }
-                }
-                return Disposables.create()
+                    case .failure(let error):
+                        if let statusCode = response.response?.statusCode,
+                            let reason = FailureReason(rawValue: statusCode)
+                        {
+                            observer.onError(reason)
+                        }
+                        observer.onError(error)
+                    }
             }
+            return Disposables.create()
+        }
     }
     
     public func getEvents() -> Observable<[WoopEvent]> {

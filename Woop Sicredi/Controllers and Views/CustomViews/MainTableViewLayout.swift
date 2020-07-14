@@ -69,7 +69,6 @@ class MainTableViewCellLayout: UIView {
     }
     
     private func setupImageViewConstraints() {
-        
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 50),
             imageView.widthAnchor.constraint(equalToConstant: 50),
@@ -77,19 +76,13 @@ class MainTableViewCellLayout: UIView {
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
-        
     }
     
     private func setupTitleLabelConstraints() {
-        
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: -16),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-        
     }
-    
-    
-    
 }

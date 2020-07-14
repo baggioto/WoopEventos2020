@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
     
     let customView = MainView()
     
-    
     // MARK: - Lifecycle methods
     
     override func loadView() {
@@ -39,19 +38,17 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print(viewModelOutput)
         
         setupTableViewDelegate()
         setupTableViewBindings()
-
-        onViewDidLoad.accept(())
         
+        onViewDidLoad.accept(())
     }
     
     private func setupTableViewDelegate() {
         customView
-        .eventsTableView
+            .eventsTableView
             .delegate = self
     }
     
@@ -63,26 +60,24 @@ class MainViewController: UIViewController {
     }
     
     private func setupTableViewCellsTap() {
-        
         customView
-        .eventsTableView.rx
-        .modelSelected(WoopEvent.self)
-        .subscribe({ [weak self] value in
-            
-            guard let event = value.element else {
-                return
-            }
-            
-            guard let eventId = Int(event.eventId) else {
-                return
-            }
-            
-            let model = EventDetailViewModel(eventId: eventId)
-            let vc = EventDetailViewController(viewModel: model)
-            self?.navigationController?.pushViewController(vc, animated: false)
-            
-        }).disposed(by: disposeBag)
-        
+            .eventsTableView.rx
+            .modelSelected(WoopEvent.self)
+            .subscribe({ [weak self] value in
+                
+                guard let event = value.element else {
+                    return
+                }
+                
+                guard let eventId = Int(event.eventId) else {
+                    return
+                }
+                
+                let model = EventDetailViewModel(eventId: eventId)
+                let vc = EventDetailViewController(viewModel: model)
+                self?.navigationController?.pushViewController(vc, animated: false)
+                
+            }).disposed(by: disposeBag)
     }
     
     private func setupTableViewCellBinding() {
@@ -90,7 +85,7 @@ class MainViewController: UIViewController {
             .events
             .asObservable()
             .bind(to: customView.eventsTableView.rx.items(cellIdentifier: "MainViewTableViewCell" , cellType: MainViewTableViewCell.self)){ row, item, cell in
-               
+                
                 cell.selectionStyle = .none
                 let viewToAdd = MainTableViewCellLayout(titleLabelText: item.title,
                                                         eventImageURL: item.image)
@@ -103,12 +98,10 @@ class MainViewController: UIViewController {
         viewModel
             .events
             .subscribe(onNext: { [weak self] _ in
-                
                 self?
                     .customView
                     .eventsTableView
                     .reloadData()
-                
             }).disposed(by: disposeBag)
     }
     
@@ -120,9 +113,7 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return MainTableViewHeader()
     }
-
 }
