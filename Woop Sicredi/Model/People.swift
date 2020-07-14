@@ -6,8 +6,6 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
-import Foundation
-
 struct People: Decodable {
     var peopleId:String
     var eventId:String

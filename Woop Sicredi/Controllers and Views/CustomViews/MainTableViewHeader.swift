@@ -8,22 +8,25 @@
 
 import UIKit
 
-class MainTableViewHeader: UIView {
+class MainTableViewHeader: UITableViewHeaderFooterView {
     
     //MARK: - Variables
+    
+    static var reusableIdentifier: String = "MainViewTableViewHeader"
     
     let logoImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "woop_logo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
         return imageView
     }()
     
     
     // MARK: - Lifecycle methods
     
-    init() {
-        super.init(frame: .zero)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         setupView()
         backgroundColor = .white
     }

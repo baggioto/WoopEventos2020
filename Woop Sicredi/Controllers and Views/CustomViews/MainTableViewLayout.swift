@@ -84,8 +84,7 @@ class MainTableViewCellLayout: UIView {
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: imageView.leadingAnchor, constant: -8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: -16),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         

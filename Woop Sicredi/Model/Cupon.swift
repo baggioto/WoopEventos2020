@@ -6,8 +6,6 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
-import Foundation
-
 struct Cupon: Decodable {
     var eventId:String
     var discount:Double

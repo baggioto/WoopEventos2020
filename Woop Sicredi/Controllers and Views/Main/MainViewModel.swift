@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 
@@ -21,7 +20,6 @@ class MainViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
     
     let events = BehaviorRelay<[WoopEvent]>(value: [])
-    var selectedEvent = BehaviorRelay<WoopEvent?>(value: nil)
     
     struct Input {
         //        input variables
@@ -46,7 +44,6 @@ class MainViewModel: ViewModelType {
     }
     
     private func retrieveEventList() {
-        
         WoopEventsService
             .sharedInstance
             .getEvents()
@@ -57,5 +54,4 @@ class MainViewModel: ViewModelType {
             }).disposed(by: self.disposeBag)
         
     }
-    
 }
