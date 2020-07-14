@@ -42,8 +42,8 @@ class MainViewController: UIViewController {
         
         print(viewModelOutput)
         
-        setupTableViewBindings()
         setupTableViewDelegate()
+        setupTableViewBindings()
 
         onViewDidLoad.accept(())
         
@@ -63,23 +63,26 @@ class MainViewController: UIViewController {
     }
     
     private func setupTableViewCellsTap() {
+        
         customView
-        .eventsTableView
-        .rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+        .eventsTableView.rx
+        .modelSelected(WoopEvent.self)
+        .subscribe({ [weak self] value in
             
-            guard let eventIdString = self?.viewModel.events.value[indexPath.row].eventId else {
+            guard let event = value.element else {
                 return
             }
             
-            guard let eventId = Int(eventIdString) else {
+            guard let eventId = Int(event.eventId) else {
                 return
             }
             
-            let model = EventDetailViewModel(eventId: Int(eventId))
+            let model = EventDetailViewModel(eventId: eventId)
             let vc = EventDetailViewController(viewModel: model)
             self?.navigationController?.pushViewController(vc, animated: false)
             
         }).disposed(by: disposeBag)
+        
     }
     
     private func setupTableViewCellBinding() {
