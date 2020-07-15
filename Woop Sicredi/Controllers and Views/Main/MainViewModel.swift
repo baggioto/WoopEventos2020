@@ -16,14 +16,21 @@ protocol ViewModelType {
     func transform(input: Input) -> Output
 }
 
+enum MainViewModelDoubleBehavior {
+    case none
+    case error
+    case success
+}
+
 class MainViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
     
     let events = BehaviorRelay<[WoopEvent]>(value: [])
+    var double = BehaviorRelay<MainViewModelDoubleBehavior>(value: .none)
     
     struct Input {
         //        input variables
-        let onViewDidLoad: Observable<Void>
+        let onViewDidLoad: PublishRelay<Void>
     }
     
     struct Output {
@@ -32,25 +39,27 @@ class MainViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         // Handle transformation between input into output
-        triggerOnViewDidLoad(input.onViewDidLoad)
+        triggerOnViewDidLoad(input.onViewDidLoad.asObservable())
         
         return Output()
     }
     
-    private func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
+    func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
         onViewDidLoad
             .subscribe(onNext: retrieveEventList)
             .disposed(by: disposeBag)
     }
     
-    private func retrieveEventList() {
+    func retrieveEventList() {
         WoopEventsService
             .sharedInstance
             .getEvents()
             .subscribe(onNext: { [weak self] model in
                 self?.events.accept(model)
-                }, onError: { _ in
+                self?.double.accept(.success)
+                }, onError: { [weak self] _ in
                     //TOAST ?
+                    self?.double.accept(.error)
             }).disposed(by: self.disposeBag)
     }
 }

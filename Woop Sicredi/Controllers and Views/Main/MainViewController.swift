@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     
     var viewModel = MainViewModel()
     lazy var viewModelOutput: MainViewModel.Output = {
-        let input = MainViewModel.Input(onViewDidLoad: self.onViewDidLoad.asObservable())
+        let input = MainViewModel.Input(onViewDidLoad: self.onViewDidLoad)
         
         return viewModel.transform(input: input)
     }()

@@ -6,8 +6,10 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
+import Foundation
+
 struct WoopEvent: Decodable {
-    var date:Int
+    var date:Date
     var image:String
     var eventDescription:String
     var people:[People]
