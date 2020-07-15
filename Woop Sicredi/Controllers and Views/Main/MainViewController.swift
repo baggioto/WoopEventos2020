@@ -14,14 +14,12 @@ class MainViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    private var selectedEventId = BehaviorRelay<Int?>(value: nil)
     private var didSelectEvent = PublishRelay<Void>()
     private var onViewDidLoad = PublishRelay<Void>()
     
     var viewModel: MainViewModel
     lazy var viewModelOutput: MainViewModel.Output = {
         let input = MainViewModel.Input(onViewDidLoad: self.onViewDidLoad,
-                                        selectedEventId: self.selectedEventId.asObservable(),
                                         didSelectEvent: self.didSelectEvent)
         
         return viewModel.transform(input: input)
@@ -79,7 +77,7 @@ class MainViewController: UIViewController {
             .map{$0.eventId}
             .map{Int($0)}
             .ignoreNil()
-            .bind(to: selectedEventId)
+            .bind(to: viewModel.selectedEventId)
             .disposed(by: disposeBag)
         
         customView

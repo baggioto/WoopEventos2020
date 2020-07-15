@@ -24,7 +24,6 @@ class mainViewTests: XCTestCase {
         self.scheduler = TestScheduler(initialClock: 0)
         self.disposeBag = DisposeBag()
         self.input = MainViewModel.Input(onViewDidLoad: PublishRelay<Void>(),
-                                         selectedEventId: Observable.of(nil),
                                          didSelectEvent: PublishRelay<Void>())
     }
 
