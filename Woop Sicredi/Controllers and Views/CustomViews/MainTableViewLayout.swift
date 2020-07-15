@@ -22,7 +22,10 @@ class MainTableViewCellLayout: UIView {
     let imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "placeholder"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 25
+        imageView.layer.masksToBounds = false
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -38,8 +41,10 @@ class MainTableViewCellLayout: UIView {
             return
         }
         
-        imageView.image = try? UIImage(data: Data(contentsOf: correctURL))
-        
+        if let loadedImage = try? UIImage(data: Data(contentsOf: correctURL)) {
+            imageView.image = loadedImage
+        }
+
         setupView()
         backgroundColor = .white
     }

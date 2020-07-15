@@ -13,9 +13,9 @@ class EventDetailView: UIView {
     //MARK: - Variables
     
     let backgroundImage: UIImageView = {
-        let imageView = UIImageView()
+        let imageView = UIImageView(image: UIImage(named: "placeholder"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .center
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.borderColor = UIColor.darkGray.cgColor
         imageView.layer.borderWidth = 1
         imageView.alpha = 0.5

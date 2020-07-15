@@ -12,9 +12,10 @@ import RxDataSources
 
 class MainViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     private var onViewDidLoad = PublishRelay<Void>()
+    
     
     var viewModel = MainViewModel()
     lazy var viewModelOutput: MainViewModel.Output = {
@@ -38,8 +39,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(viewModelOutput)
         
+        setupLoaderViewBindings()
         setupTableViewDelegate()
         setupTableViewBindings()
         
@@ -57,6 +58,27 @@ class MainViewController: UIViewController {
         setupRegisterCells()
         setupTableViewCellBinding()
         setupTableViewCellsTap()
+    }
+    
+    private func setupLoaderViewBindings() {
+        
+        viewModelOutput
+            .shouldAppearLoaderView
+            .drive(customView.loaderView.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModelOutput
+            .shouldAppearLoaderView
+            .map{!$0}
+            .drive(customView.loaderView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModelOutput
+            .shouldAppearLoaderView
+            .map{!$0}
+            .drive(customView.loaderParentView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
     }
     
     private func setupTableViewCellsTap() {

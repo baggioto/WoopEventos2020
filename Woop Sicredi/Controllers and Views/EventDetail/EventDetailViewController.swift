@@ -118,9 +118,11 @@ class EventDetailViewController: UIViewController{
             return
         }
         
-        customView
-            .backgroundImage
-            .image = try? UIImage(data: Data(contentsOf: correctURL))
+        if let loadedImage = try? UIImage(data: Data(contentsOf: correctURL)) {
+            customView
+                .backgroundImage
+                .image = loadedImage
+        }
         
         customView
             .titleLabel

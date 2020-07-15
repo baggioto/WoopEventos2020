@@ -21,6 +21,19 @@ class MainView: UIView {
         return tableView
     }()
     
+    let loaderView: UIActivityIndicatorView = {
+        $0.transform = CGAffineTransform(scaleX: 2.0, y: 2.0);
+        $0.color = .lightGray
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIActivityIndicatorView())
+    
+    let loaderParentView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
+        return $0
+    }(UIView())
+    
     
     // MARK: - Lifecycle methods
     
@@ -44,12 +57,16 @@ class MainView: UIView {
     
     private func buildViewHierarchy(){
         addSubview(eventsTableView)
+        addSubview(loaderParentView)
+        loaderParentView.addSubview(loaderView)
     }
     
     //MARK: - Constraints
     
     private func setupConstraints(){
         setupTableViewConstraints()
+        setupLoaderParentViewConstraints()
+        setupLoaderViewConstraints()
     }
     
     private func setupTableViewConstraints() {
@@ -58,6 +75,24 @@ class MainView: UIView {
             eventsTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             eventsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             eventsTableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
+    private func setupLoaderViewConstraints() {
+        NSLayoutConstraint.activate([
+            loaderView.centerXAnchor.constraint(equalTo: loaderParentView.centerXAnchor),
+            loaderView.centerYAnchor.constraint(equalTo: loaderParentView.centerYAnchor),
+            loaderView.heightAnchor.constraint(equalToConstant: 30),
+            loaderView.widthAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    private func setupLoaderParentViewConstraints() {
+        NSLayoutConstraint.activate([
+            loaderParentView.topAnchor.constraint(equalTo: topAnchor),
+            loaderParentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            loaderParentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            loaderParentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     

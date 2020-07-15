@@ -20,6 +20,7 @@ class MainViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
     
     let events = BehaviorRelay<[WoopEvent]>(value: [])
+    private var loaderShouldAppear = BehaviorRelay<Bool>(value: false)
     
     struct Input {
         //        input variables
@@ -28,29 +29,52 @@ class MainViewModel: ViewModelType {
     
     struct Output {
         // Should create outputs
+        let shouldAppearLoaderView: Driver<Bool>
     }
     
     func transform(input: Input) -> Output {
         // Handle transformation between input into output
         triggerOnViewDidLoad(input.onViewDidLoad)
         
-        return Output()
+        let shouldAppearLoaderView = setupShouldAppearLoaderView()
+        
+        return Output(shouldAppearLoaderView: shouldAppearLoaderView)
+    }
+    
+    private func setupShouldAppearLoaderView() -> Driver<Bool> {
+        return loaderShouldAppear.asDriver(onErrorJustReturn: false)
+    }
+    
+    private func setLoaderShouldAppear(shouldAppear: Bool) {
+        loaderShouldAppear.accept(shouldAppear)
+    }
+    
+    private func resetLoaderShouldAppear() {
+        setLoaderShouldAppear(shouldAppear: false)
+    }
+    
+    private func activateLoaderShouldAppear() {
+        setLoaderShouldAppear(shouldAppear: true)
     }
     
     private func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
         onViewDidLoad
+            .do(onNext: activateLoaderShouldAppear)
             .subscribe(onNext: retrieveEventList)
             .disposed(by: disposeBag)
     }
     
     private func retrieveEventList() {
+        
         WoopEventsService
             .sharedInstance
             .getEvents()
             .subscribe(onNext: { [weak self] model in
                 self?.events.accept(model)
-                }, onError: { _ in
+                self?.resetLoaderShouldAppear()
+                }, onError: { [weak self] _ in
                     //TOAST ?
+                    self?.resetLoaderShouldAppear()
             }).disposed(by: self.disposeBag)
     }
 }
