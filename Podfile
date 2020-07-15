@@ -15,3 +15,15 @@ pod 'Alamofire', '= 4.8.0'
 pod 'R.swift'
 
 end
+
+target 'WoopSicrediTests' do
+
+pod 'RxTest'
+pod 'RxSwift', '~> 4.0'
+pod 'RxCocoa', '~> 4.0'
+pod 'RxDataSources'
+pod 'SwiftyJSON', '~> 4.0'
+pod 'Alamofire', '= 4.8.0'
+pod 'R.swift'
+
+end

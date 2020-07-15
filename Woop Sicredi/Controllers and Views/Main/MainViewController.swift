@@ -14,12 +14,13 @@ class MainViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    private var didSelectEvent = PublishRelay<Void>()
     private var onViewDidLoad = PublishRelay<Void>()
     
-    
-    var viewModel = MainViewModel()
+    var viewModel: MainViewModel
     lazy var viewModelOutput: MainViewModel.Output = {
-        let input = MainViewModel.Input(onViewDidLoad: self.onViewDidLoad.asObservable())
+        let input = MainViewModel.Input(onViewDidLoad: self.onViewDidLoad,
+                                        didSelectEvent: self.didSelectEvent)
         
         return viewModel.transform(input: input)
     }()
@@ -30,6 +31,15 @@ class MainViewController: UIViewController {
     
     override func loadView() {
         view = customView
+    }
+    
+    public init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,21 +95,18 @@ class MainViewController: UIViewController {
         customView
             .eventsTableView.rx
             .modelSelected(WoopEvent.self)
-            .subscribe({ [weak self] value in
-                
-                guard let event = value.element else {
-                    return
-                }
-                
-                guard let eventId = Int(event.eventId) else {
-                    return
-                }
-                
-                let model = EventDetailViewModel(eventId: eventId)
-                let vc = EventDetailViewController(viewModel: model)
-                self?.navigationController?.pushViewController(vc, animated: false)
-                
-            }).disposed(by: disposeBag)
+            .map{$0.eventId}
+            .map{Int($0)}
+            .ignoreNil()
+            .bind(to: viewModel.selectedEventId)
+            .disposed(by: disposeBag)
+        
+        customView
+            .eventsTableView.rx
+            .modelSelected(WoopEvent.self)
+            .map{_ in }
+            .bind(to: didSelectEvent)
+            .disposed(by: disposeBag)
     }
     
     private func setupTableViewCellBinding() {

@@ -9,21 +9,24 @@
 import RxSwift
 import Alamofire
 
-class WoopEventsService {
+enum FailureReason: Int, Error {
+    case unAuthorized = 401
+    case notFound = 404
+    case serverError = 500
+}
+
+protocol WoopEventsServiceProtocol {
+    func getDetailedEvent(eventId: Int) -> Observable<WoopEvent>
+    func getEvents() -> Observable<[WoopEvent]>
+}
+
+class WoopEventsService: WoopEventsServiceProtocol {
     
-    private static var _instance: WoopEventsService? = nil
+    private var plist: [String: Any]? = {
+        return readFromPlist(name: "ServiceData")
+    }()
     
-    public static var sharedInstance: WoopEventsService {
-        get {
-            if _instance == nil {
-                _instance = WoopEventsService()
-            }
-            
-            return _instance!
-        }
-    }
-    
-    private let baseApiUrl: String = WoopBaseService.sharedInstance.apiUrl
+    lazy var baseApiUrl: String = apiUrl
     
     private var eventsApiUrl: String {
         "\(baseApiUrl)/events"
@@ -31,12 +34,6 @@ class WoopEventsService {
     
     private var eventDetailApiUrl: String {
         "\(baseApiUrl)/events/%d"
-    }
-    
-    enum FailureReason: Int, Error {
-        case unAuthorized = 401
-        case notFound = 404
-        case serverError = 500
     }
     
     public func getDetailedEvent(eventId: Int) -> Observable<WoopEvent> {
@@ -96,6 +93,66 @@ class WoopEventsService {
                     }
             }
             return Disposables.create()
+        }
+    }
+    
+}
+
+enum WoopEventsServiceMockBehavior {
+    case none
+    case error
+    case success
+}
+
+final class WoopEventsServiceMock: WoopEventsServiceProtocol {
+    
+    var behavior: WoopEventsServiceMockBehavior
+    
+    init(behavior: WoopEventsServiceMockBehavior) {
+        self.behavior = behavior
+    }
+    
+    func getDetailedEvent(eventId: Int) -> Observable<WoopEvent> {
+        switch behavior {
+        case .success:
+            return .just(WoopEvent.eventMock())
+        default:
+            return .error(FailureReason.unAuthorized)
+        }
+    }
+    
+    func getEvents() -> Observable<[WoopEvent]> {
+        switch behavior {
+        case .success:
+            return .just([WoopEvent.eventMock()])
+        default:
+            return .error(FailureReason.unAuthorized)
+        }
+    }
+    
+}
+
+extension WoopEventsService {
+    
+    public static func readFromPlist(name: String) -> [String: Any] {
+        if let fileUrl = Bundle.main.url(forResource: name, withExtension: "plist"),
+            let data = try? Data(contentsOf: fileUrl) {
+            if let result = ((try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any]) as [String : Any]??) {
+                return result!
+            }
+        }
+        
+        return [:]
+    }
+    
+    var apiUrl: String! {
+        get {
+            
+            if let urls = self.plist?["API_URL"] as? String {
+                return urls
+            }
+            
+            return ""
         }
     }
     

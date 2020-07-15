@@ -1,0 +1,6 @@
+module Pods_WoopSicrediTests {
+  umbrella header "Pods-WoopSicrediTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

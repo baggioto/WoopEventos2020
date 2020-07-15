@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		17DA6EB566870E3A7A797F44 /* Pods_Woop_Sicredi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52794A9E5C3BDDBC4AE182DF /* Pods_Woop_Sicredi.framework */; };
+		C1C230B7F48FEB4E028B801C /* libPods-WoopSicrediTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD7DD1BC5F785AF85569E72 /* libPods-WoopSicrediTests.a */; };
 		D9053EF42468B855006A7DDE /* MainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */; };
+		D923108924BE7945005A2DEC /* WoopSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923108824BE7945005A2DEC /* WoopSicrediTests.swift */; };
+		D923109224BF44BC005A2DEC /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923109124BF44BC005A2DEC /* RxExtensions.swift */; };
 		D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DAFE245F737B001B0923 /* AppDelegate.swift */; };
 		D933DB03245F737B001B0923 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB02245F737B001B0923 /* MainViewController.swift */; };
 		D933DB08245F737C001B0923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D933DB07245F737C001B0923 /* Assets.xcassets */; };
 		D933DB0B245F737C001B0923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D933DB09245F737C001B0923 /* LaunchScreen.storyboard */; };
 		D933DB15245F7721001B0923 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB14245F7721001B0923 /* MainView.swift */; };
-		D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB17245F7ED3001B0923 /* WoopBaseService.swift */; };
 		D933DB1A245F806F001B0923 /* ServiceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D933DB19245F806F001B0923 /* ServiceData.plist */; };
 		D933DB1C245F826A001B0923 /* WoopEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1B245F826A001B0923 /* WoopEventsService.swift */; };
 		D9D1AB102468CC4100E54063 /* MainTableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */; };
@@ -29,11 +31,27 @@
 		D9DB5A862460344D0078AA87 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB5A852460344D0078AA87 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D923108B24BE7945005A2DEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D933DAF3245F737B001B0923 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D933DAFA245F737B001B0923;
+			remoteInfo = "Woop Sicredi";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		16FDAF4F1397C4266C9A6374 /* Pods-WoopSicrediTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopSicrediTests.debug.xcconfig"; path = "Target Support Files/Pods-WoopSicrediTests/Pods-WoopSicrediTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A9AB121804A87F287A2ECFA /* Pods-Woop Sicredi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woop Sicredi.release.xcconfig"; path = "Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi.release.xcconfig"; sourceTree = "<group>"; };
 		52794A9E5C3BDDBC4AE182DF /* Pods_Woop_Sicredi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Woop_Sicredi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DCEB19D732DF8DBAB75DD3E /* Pods-Woop Sicredi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Woop Sicredi.debug.xcconfig"; path = "Target Support Files/Pods-Woop Sicredi/Pods-Woop Sicredi.debug.xcconfig"; sourceTree = "<group>"; };
+		CDBC09EF2B5F4BA866A962BB /* Pods-WoopSicrediTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoopSicrediTests.release.xcconfig"; path = "Target Support Files/Pods-WoopSicrediTests/Pods-WoopSicrediTests.release.xcconfig"; sourceTree = "<group>"; };
 		D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableViewCell.swift; sourceTree = "<group>"; };
+		D923108624BE7945005A2DEC /* WoopSicrediTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoopSicrediTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D923108824BE7945005A2DEC /* WoopSicrediTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopSicrediTests.swift; sourceTree = "<group>"; };
+		D923108A24BE7945005A2DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D923109124BF44BC005A2DEC /* RxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
 		D933DAFB245F737B001B0923 /* Woop Sicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woop Sicredi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D933DAFE245F737B001B0923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D933DB02245F737B001B0923 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +59,6 @@
 		D933DB0A245F737C001B0923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D933DB0C245F737C001B0923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D933DB14245F7721001B0923 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		D933DB17245F7ED3001B0923 /* WoopBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopBaseService.swift; sourceTree = "<group>"; };
 		D933DB19245F806F001B0923 /* ServiceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServiceData.plist; sourceTree = "<group>"; };
 		D933DB1B245F826A001B0923 /* WoopEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopEventsService.swift; sourceTree = "<group>"; };
 		D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewLayout.swift; sourceTree = "<group>"; };
@@ -54,9 +71,18 @@
 		D9DB5A7F245F97FF0078AA87 /* WoopEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopEvent.swift; sourceTree = "<group>"; };
 		D9DB5A81245F98930078AA87 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		D9DB5A852460344D0078AA87 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FAD7DD1BC5F785AF85569E72 /* libPods-WoopSicrediTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WoopSicrediTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D923108324BE7945005A2DEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C230B7F48FEB4E028B801C /* libPods-WoopSicrediTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D933DAF8245F737B001B0923 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,6 +99,8 @@
 			children = (
 				7DCEB19D732DF8DBAB75DD3E /* Pods-Woop Sicredi.debug.xcconfig */,
 				4A9AB121804A87F287A2ECFA /* Pods-Woop Sicredi.release.xcconfig */,
+				16FDAF4F1397C4266C9A6374 /* Pods-WoopSicrediTests.debug.xcconfig */,
+				CDBC09EF2B5F4BA866A962BB /* Pods-WoopSicrediTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -87,10 +115,20 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		D923108724BE7945005A2DEC /* WoopSicrediTests */ = {
+			isa = PBXGroup;
+			children = (
+				D923108824BE7945005A2DEC /* WoopSicrediTests.swift */,
+				D923108A24BE7945005A2DEC /* Info.plist */,
+			);
+			path = WoopSicrediTests;
+			sourceTree = "<group>";
+		};
 		D933DAF2245F737B001B0923 = {
 			isa = PBXGroup;
 			children = (
 				D933DAFD245F737B001B0923 /* Woop Sicredi */,
+				D923108724BE7945005A2DEC /* WoopSicrediTests */,
 				D933DAFC245F737B001B0923 /* Products */,
 				3B5E96A810875AC5FBC832B3 /* Pods */,
 				EB7DDFE7975ABD0BBB96F2A7 /* Frameworks */,
@@ -101,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				D933DAFB245F737B001B0923 /* Woop Sicredi.app */,
+				D923108624BE7945005A2DEC /* WoopSicrediTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				D933DB1B245F826A001B0923 /* WoopEventsService.swift */,
-				D933DB17245F7ED3001B0923 /* WoopBaseService.swift */,
 				D933DB19245F806F001B0923 /* ServiceData.plist */,
 			);
 			path = Service;
@@ -154,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */,
+				D923109124BF44BC005A2DEC /* RxExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				52794A9E5C3BDDBC4AE182DF /* Pods_Woop_Sicredi.framework */,
+				FAD7DD1BC5F785AF85569E72 /* libPods-WoopSicrediTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +229,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D923108524BE7945005A2DEC /* WoopSicrediTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D923108D24BE7945005A2DEC /* Build configuration list for PBXNativeTarget "WoopSicrediTests" */;
+			buildPhases = (
+				8E59C9A211B16D8B67ABD449 /* [CP] Check Pods Manifest.lock */,
+				D923108224BE7945005A2DEC /* Sources */,
+				D923108324BE7945005A2DEC /* Frameworks */,
+				D923108424BE7945005A2DEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D923108C24BE7945005A2DEC /* PBXTargetDependency */,
+			);
+			name = WoopSicrediTests;
+			productName = WoopSicrediTests;
+			productReference = D923108624BE7945005A2DEC /* WoopSicrediTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D933DAFA245F737B001B0923 /* Woop Sicredi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D933DB0F245F737C001B0923 /* Build configuration list for PBXNativeTarget "Woop Sicredi" */;
@@ -214,10 +273,14 @@
 		D933DAF3245F737B001B0923 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Sicredi;
 				TargetAttributes = {
+					D923108524BE7945005A2DEC = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = D933DAFA245F737B001B0923;
+					};
 					D933DAFA245F737B001B0923 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -237,11 +300,19 @@
 			projectRoot = "";
 			targets = (
 				D933DAFA245F737B001B0923 /* Woop Sicredi */,
+				D923108524BE7945005A2DEC /* WoopSicrediTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D923108424BE7945005A2DEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D933DAF9245F737B001B0923 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,18 +365,48 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8E59C9A211B16D8B67ABD449 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WoopSicrediTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D923108224BE7945005A2DEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D923108924BE7945005A2DEC /* WoopSicrediTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D933DAF7245F737B001B0923 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D9DB5A7E245F97260078AA87 /* Cupon.swift in Sources */,
+				D923109224BF44BC005A2DEC /* RxExtensions.swift in Sources */,
 				D9D1AB172468E87400E54063 /* EventDetailViewController.swift in Sources */,
 				D933DB03245F737B001B0923 /* MainViewController.swift in Sources */,
 				D933DB15245F7721001B0923 /* MainView.swift in Sources */,
-				D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */,
 				D9DB5A80245F97FF0078AA87 /* WoopEvent.swift in Sources */,
 				D9D1AB1B24690B1700E54063 /* UIButtonExtensions.swift in Sources */,
 				D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */,
@@ -322,6 +423,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D923108C24BE7945005A2DEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D933DAFA245F737B001B0923 /* Woop Sicredi */;
+			targetProxy = D923108B24BE7945005A2DEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D933DB09245F737C001B0923 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -334,6 +443,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D923108E24BE7945005A2DEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16FDAF4F1397C4266C9A6374 /* Pods-WoopSicrediTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WoopSicrediTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Sicredi.WoopSicrediTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woop Sicredi.app/Woop Sicredi";
+			};
+			name = Debug;
+		};
+		D923108F24BE7945005A2DEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDBC09EF2B5F4BA866A962BB /* Pods-WoopSicrediTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WoopSicrediTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Sicredi.WoopSicrediTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Woop Sicredi.app/Woop Sicredi";
+			};
+			name = Release;
+		};
 		D933DB0D245F737C001B0923 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -489,6 +640,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D923108D24BE7945005A2DEC /* Build configuration list for PBXNativeTarget "WoopSicrediTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D923108E24BE7945005A2DEC /* Debug */,
+				D923108F24BE7945005A2DEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D933DAF6245F737B001B0923 /* Build configuration list for PBXProject "Woop Sicredi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

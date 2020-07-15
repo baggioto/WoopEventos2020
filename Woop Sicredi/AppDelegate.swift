@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         let navController = UINavigationController()
-        let controller = MainViewController()
+        let viewModel = MainViewModel(service: WoopEventsService(), controller: navController)
+        let controller = MainViewController(viewModel: viewModel)
         
         navController.addChild(controller)
         

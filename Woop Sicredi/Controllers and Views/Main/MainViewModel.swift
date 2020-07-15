@@ -16,15 +16,27 @@ protocol ViewModelType {
     func transform(input: Input) -> Output
 }
 
+enum MainViewModelDoubleMockBehavior {
+    case none
+    case error
+    case success
+}
+
 class MainViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
     
     let events = BehaviorRelay<[WoopEvent]>(value: [])
     private var loaderShouldAppear = BehaviorRelay<Bool>(value: false)
+    var double = BehaviorRelay<MainViewModelDoubleMockBehavior>(value: .none)
+    var selectedEventId = BehaviorRelay<Int?>(value: nil)
+    
+    private var service: WoopEventsServiceProtocol
+    private var controller: UINavigationController
     
     struct Input {
         //        input variables
-        let onViewDidLoad: Observable<Void>
+        let onViewDidLoad: PublishRelay<Void>
+        let didSelectEvent: PublishRelay<Void>
     }
     
     struct Output {
@@ -34,7 +46,8 @@ class MainViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         // Handle transformation between input into output
-        triggerOnViewDidLoad(input.onViewDidLoad)
+        triggerOnViewDidLoad(input.onViewDidLoad.asObservable())
+        setupEventSelection(didSelectEvent: input.didSelectEvent.asObservable())
         
         let shouldAppearLoaderView = setupShouldAppearLoaderView()
         
@@ -57,24 +70,44 @@ class MainViewModel: ViewModelType {
         setLoaderShouldAppear(shouldAppear: true)
     }
     
-    private func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
+    init(service: WoopEventsServiceProtocol, controller: UINavigationController) {
+        self.service = service
+        self.controller = controller
+    }
+    
+    private func setupEventSelection(didSelectEvent: Observable<Void>) {
+        didSelectEvent
+            .withLatestFrom(selectedEventId)
+            .ignoreNil()
+            .map(navigateToEventDetail)
+            .subscribe()
+            .disposed(by: disposeBag)
+    }
+    
+    func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
         onViewDidLoad
             .do(onNext: activateLoaderShouldAppear)
             .subscribe(onNext: retrieveEventList)
             .disposed(by: disposeBag)
     }
     
-    private func retrieveEventList() {
-        
-        WoopEventsService
-            .sharedInstance
+    func retrieveEventList() {
+        service
             .getEvents()
             .subscribe(onNext: { [weak self] model in
                 self?.events.accept(model)
+                self?.double.accept(.success)
                 self?.resetLoaderShouldAppear()
                 }, onError: { [weak self] _ in
                     //TOAST ?
+                    self?.double.accept(.error)
                     self?.resetLoaderShouldAppear()
             }).disposed(by: self.disposeBag)
+    }
+    
+    private func navigateToEventDetail(_ eventId: Int) {
+        let model = EventDetailViewModel(eventId: eventId, service: service, controller: controller)
+        let vc = EventDetailViewController(viewModel: model)
+        controller.pushViewController(vc, animated: false)
     }
 }

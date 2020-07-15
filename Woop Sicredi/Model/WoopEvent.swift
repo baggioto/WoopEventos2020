@@ -6,8 +6,10 @@
 //  Copyright © 2020 Sicredi. All rights reserved.
 //
 
+import Foundation
+
 struct WoopEvent: Decodable {
-    var date:Int
+    var date:Date
     var image:String
     var eventDescription:String
     var people:[People]
@@ -31,4 +33,19 @@ struct WoopEvent: Decodable {
         case latitude = "latitude"
     }
     
+}
+
+extension WoopEvent {
+    static func eventMock() -> Self {
+        .init(date: Date(),
+              image: "",
+              eventDescription: "",
+              people: [],
+              cupons: [],
+              price: 50,
+              eventId: "",
+              title: "",
+              longitude: 5,
+              latitude: 5)
+    }
 }
