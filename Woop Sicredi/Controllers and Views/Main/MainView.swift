@@ -16,8 +16,9 @@ class MainView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.allowsMultipleSelection = false
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.backgroundColor = .white
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
@@ -33,7 +34,6 @@ class MainView: UIView {
         $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
         return $0
     }(UIView())
-    
     
     // MARK: - Lifecycle methods
     

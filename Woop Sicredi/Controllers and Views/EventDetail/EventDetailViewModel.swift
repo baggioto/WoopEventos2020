@@ -14,6 +14,7 @@ class EventDetailViewModel: ViewModelType {
     
     private var eventId = BehaviorRelay<Int?>(value: nil)
     var event = BehaviorRelay<WoopEvent?>(value: nil)
+    private var loaderShouldAppear = BehaviorRelay<Bool>(value: false)
     
     struct Input {
         //        input variables
@@ -22,14 +23,32 @@ class EventDetailViewModel: ViewModelType {
     
     struct Output {
         // Should create outputs
+        let shouldAppearLoaderView: Driver<Bool>
     }
     
     func transform(input: Input) -> Output {
         // Handle transformation between input into output
         triggerOnViewDidLoad(input.onViewDidLoad)
-        return Output()
+        let shouldAppearLoaderView = setupShouldAppearLoaderView()
+        
+        return Output(shouldAppearLoaderView: shouldAppearLoaderView)
     }
     
+    private func setupShouldAppearLoaderView() -> Driver<Bool> {
+        return loaderShouldAppear.asDriver(onErrorJustReturn: false)
+    }
+    
+    private func setLoaderShouldAppear(shouldAppear: Bool) {
+        loaderShouldAppear.accept(shouldAppear)
+    }
+    
+    private func resetLoaderShouldAppear() {
+        setLoaderShouldAppear(shouldAppear: false)
+    }
+    
+    private func activateLoaderShouldAppear() {
+        setLoaderShouldAppear(shouldAppear: true)
+    }
     
     init(eventId: Int) {
         self.eventId = BehaviorRelay<Int?>(value: eventId)
@@ -37,6 +56,7 @@ class EventDetailViewModel: ViewModelType {
     
     private func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
         onViewDidLoad
+            .do(onNext: activateLoaderShouldAppear)
             .subscribe(onNext: retrieveEventInfo)
             .disposed(by: disposeBag)
     }
@@ -52,8 +72,10 @@ class EventDetailViewModel: ViewModelType {
             .getDetailedEvent(eventId: validEventId)
             .subscribe(onNext: { [weak self] model in
                 self?.event.accept(model)
-                }, onError: { _ in
+                self?.resetLoaderShouldAppear()
+                }, onError: { [weak self] _ in
                     //toast
+                    self?.resetLoaderShouldAppear()
             }).disposed(by: disposeBag)
         
     }

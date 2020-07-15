@@ -73,6 +73,28 @@ class EventDetailViewController: UIViewController{
         setupViewChangesBindings()
         setupShareBindings()
         setupBackButtonBindings()
+        setupLoaderViewBindings()
+    }
+    
+    private func setupLoaderViewBindings() {
+        
+        viewModelOutput
+            .shouldAppearLoaderView
+            .drive(customView.loaderView.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModelOutput
+            .shouldAppearLoaderView
+            .map{!$0}
+            .drive(customView.loaderView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModelOutput
+            .shouldAppearLoaderView
+            .map{!$0}
+            .drive(customView.loaderParentView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
     }
     
     private func setupBackButtonBindings() {

@@ -44,7 +44,7 @@ class MainTableViewCellLayout: UIView {
         if let loadedImage = try? UIImage(data: Data(contentsOf: correctURL)) {
             imageView.image = loadedImage
         }
-
+        
         setupView()
         backgroundColor = .white
     }

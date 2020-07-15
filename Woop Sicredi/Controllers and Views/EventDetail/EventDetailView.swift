@@ -12,6 +12,19 @@ class EventDetailView: UIView {
     
     //MARK: - Variables
     
+    let loaderView: UIActivityIndicatorView = {
+        $0.transform = CGAffineTransform(scaleX: 2.0, y: 2.0);
+        $0.color = .lightGray
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIActivityIndicatorView())
+    
+    let loaderParentView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
+        return $0
+    }(UIView())
+    
     let backgroundImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "placeholder"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +93,8 @@ class EventDetailView: UIView {
         addSubview(descriptionTextView)
         addSubview(shareButton)
         addSubview(backButton)
+        addSubview(loaderParentView)
+        loaderParentView.addSubview(loaderView)
     }
     
     //MARK: - Constraints
@@ -90,6 +105,26 @@ class EventDetailView: UIView {
         setupDescriptionTextViewConstraints()
         setupShareButtonConstraints()
         setupBackButtonConstraints()
+        setupLoaderParentViewConstraints()
+        setupLoaderViewConstraints()
+    }
+    
+    private func setupLoaderViewConstraints() {
+        NSLayoutConstraint.activate([
+            loaderView.centerXAnchor.constraint(equalTo: loaderParentView.centerXAnchor),
+            loaderView.centerYAnchor.constraint(equalTo: loaderParentView.centerYAnchor),
+            loaderView.heightAnchor.constraint(equalToConstant: 30),
+            loaderView.widthAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    private func setupLoaderParentViewConstraints() {
+        NSLayoutConstraint.activate([
+            loaderParentView.topAnchor.constraint(equalTo: topAnchor),
+            loaderParentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            loaderParentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            loaderParentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     
     private func setupBackButtonConstraints() {
