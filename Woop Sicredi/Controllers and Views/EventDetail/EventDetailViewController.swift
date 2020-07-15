@@ -14,11 +14,15 @@ class EventDetailViewController: UIViewController{
     private let disposeBag = DisposeBag()
     //    button click variables
     
+    private var shareButtonPressed = PublishRelay<Void>()
+    private var backButtonPressed = PublishRelay<Void>()
     private var onViewDidLoad = PublishRelay<Void>()
     
     var viewModel: EventDetailViewModel!
     lazy var viewModelOutput: EventDetailViewModel.Output = {
-        let input = EventDetailViewModel.Input(onViewDidLoad: self.onViewDidLoad.asObservable())
+        let input = EventDetailViewModel.Input(onViewDidLoad: self.onViewDidLoad,
+                                               backButtonPressed: self.backButtonPressed,
+                                               shareButtonPressed: self.shareButtonPressed)
         
         return viewModel.transform(input: input)
     }()
@@ -78,27 +82,17 @@ class EventDetailViewController: UIViewController{
     private func setupBackButtonBindings() {
         customView
             .backButton
-            .rx.tap.subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            }).disposed(by: disposeBag)
+            .rx.tap
+            .bind(to: backButtonPressed)
+            .disposed(by: disposeBag)
     }
     
     private func setupShareBindings() {
         customView
             .shareButton
-            .rx.tap.subscribe(onNext: { [weak self] _ in
-                
-                guard let eventValue = self?.viewModel.event.value else {
-                    return
-                }
-                
-                let textToShare = [ eventValue.eventDescription ]
-                let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self?.view
-                
-                self?.present(activityViewController, animated: true, completion: nil)
-                
-            }).disposed(by: disposeBag)
+            .rx.tap
+            .bind(to: shareButtonPressed)
+            .disposed(by: disposeBag)
     }
     
     private func setupViewChangesBindings() {

@@ -11,12 +11,12 @@
 		C1C230B7F48FEB4E028B801C /* libPods-WoopSicrediTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD7DD1BC5F785AF85569E72 /* libPods-WoopSicrediTests.a */; };
 		D9053EF42468B855006A7DDE /* MainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */; };
 		D923108924BE7945005A2DEC /* WoopSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923108824BE7945005A2DEC /* WoopSicrediTests.swift */; };
+		D923109224BF44BC005A2DEC /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923109124BF44BC005A2DEC /* RxExtensions.swift */; };
 		D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DAFE245F737B001B0923 /* AppDelegate.swift */; };
 		D933DB03245F737B001B0923 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB02245F737B001B0923 /* MainViewController.swift */; };
 		D933DB08245F737C001B0923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D933DB07245F737C001B0923 /* Assets.xcassets */; };
 		D933DB0B245F737C001B0923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D933DB09245F737C001B0923 /* LaunchScreen.storyboard */; };
 		D933DB15245F7721001B0923 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB14245F7721001B0923 /* MainView.swift */; };
-		D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB17245F7ED3001B0923 /* WoopBaseService.swift */; };
 		D933DB1A245F806F001B0923 /* ServiceData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D933DB19245F806F001B0923 /* ServiceData.plist */; };
 		D933DB1C245F826A001B0923 /* WoopEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB1B245F826A001B0923 /* WoopEventsService.swift */; };
 		D9D1AB102468CC4100E54063 /* MainTableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */; };
@@ -51,6 +51,7 @@
 		D923108624BE7945005A2DEC /* WoopSicrediTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WoopSicrediTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D923108824BE7945005A2DEC /* WoopSicrediTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopSicrediTests.swift; sourceTree = "<group>"; };
 		D923108A24BE7945005A2DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D923109124BF44BC005A2DEC /* RxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
 		D933DAFB245F737B001B0923 /* Woop Sicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woop Sicredi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D933DAFE245F737B001B0923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D933DB02245F737B001B0923 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		D933DB0A245F737C001B0923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D933DB0C245F737C001B0923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D933DB14245F7721001B0923 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		D933DB17245F7ED3001B0923 /* WoopBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopBaseService.swift; sourceTree = "<group>"; };
 		D933DB19245F806F001B0923 /* ServiceData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ServiceData.plist; sourceTree = "<group>"; };
 		D933DB1B245F826A001B0923 /* WoopEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopEventsService.swift; sourceTree = "<group>"; };
 		D9D1AB0F2468CC4100E54063 /* MainTableViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewLayout.swift; sourceTree = "<group>"; };
@@ -183,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				D933DB1B245F826A001B0923 /* WoopEventsService.swift */,
-				D933DB17245F7ED3001B0923 /* WoopBaseService.swift */,
 				D933DB19245F806F001B0923 /* ServiceData.plist */,
 			);
 			path = Service;
@@ -193,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */,
+				D923109124BF44BC005A2DEC /* RxExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,10 +403,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9DB5A7E245F97260078AA87 /* Cupon.swift in Sources */,
+				D923109224BF44BC005A2DEC /* RxExtensions.swift in Sources */,
 				D9D1AB172468E87400E54063 /* EventDetailViewController.swift in Sources */,
 				D933DB03245F737B001B0923 /* MainViewController.swift in Sources */,
 				D933DB15245F7721001B0923 /* MainView.swift in Sources */,
-				D933DB18245F7ED3001B0923 /* WoopBaseService.swift in Sources */,
 				D9DB5A80245F97FF0078AA87 /* WoopEvent.swift in Sources */,
 				D9D1AB1B24690B1700E54063 /* UIButtonExtensions.swift in Sources */,
 				D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */,

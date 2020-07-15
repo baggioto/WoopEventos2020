@@ -16,7 +16,7 @@ protocol ViewModelType {
     func transform(input: Input) -> Output
 }
 
-enum MainViewModelDoubleBehavior {
+enum MainViewModelDoubleMockBehavior {
     case none
     case error
     case success
@@ -26,11 +26,15 @@ class MainViewModel: ViewModelType {
     private let disposeBag = DisposeBag()
     
     let events = BehaviorRelay<[WoopEvent]>(value: [])
-    var double = BehaviorRelay<MainViewModelDoubleBehavior>(value: .none)
+    var double = BehaviorRelay<MainViewModelDoubleMockBehavior>(value: .none)
+    private var service: WoopEventsServiceProtocol
+    private var controller: UINavigationController
     
     struct Input {
         //        input variables
         let onViewDidLoad: PublishRelay<Void>
+        let selectedEventId: Observable<Int?>
+        let didSelectEvent: PublishRelay<Void>
     }
     
     struct Output {
@@ -40,8 +44,23 @@ class MainViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         // Handle transformation between input into output
         triggerOnViewDidLoad(input.onViewDidLoad.asObservable())
+        setupEventSelection(didSelectEvent: input.didSelectEvent.asObservable(), selectedEventId: input.selectedEventId)
         
         return Output()
+    }
+    
+    init(service: WoopEventsServiceProtocol, controller: UINavigationController) {
+        self.service = service
+        self.controller = controller
+    }
+    
+    private func setupEventSelection(didSelectEvent: Observable<Void>, selectedEventId: Observable<Int?>) {
+        didSelectEvent
+        .withLatestFrom(selectedEventId)
+        .ignoreNil()
+        .map(navigateToEventDetail)
+        .subscribe()
+        .disposed(by: disposeBag)
     }
     
     func triggerOnViewDidLoad(_ onViewDidLoad: Observable<Void>){
@@ -51,8 +70,7 @@ class MainViewModel: ViewModelType {
     }
     
     func retrieveEventList() {
-        WoopEventsService
-            .sharedInstance
+        service
             .getEvents()
             .subscribe(onNext: { [weak self] model in
                 self?.events.accept(model)
@@ -61,5 +79,13 @@ class MainViewModel: ViewModelType {
                     //TOAST ?
                     self?.double.accept(.error)
             }).disposed(by: self.disposeBag)
+    }
+    
+    private func navigateToEventDetail(_ eventId: Int) {
+        
+        let model = EventDetailViewModel(eventId: eventId, service: service, controller: controller)
+        let vc = EventDetailViewController(viewModel: model)
+        controller.pushViewController(vc, animated: false)
+        
     }
 }

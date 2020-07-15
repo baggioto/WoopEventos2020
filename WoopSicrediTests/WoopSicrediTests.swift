@@ -23,7 +23,9 @@ class mainViewTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         self.scheduler = TestScheduler(initialClock: 0)
         self.disposeBag = DisposeBag()
-        self.input = MainViewModel.Input(onViewDidLoad: PublishRelay<Void>())
+        self.input = MainViewModel.Input(onViewDidLoad: PublishRelay<Void>(),
+                                         selectedEventId: Observable.of(nil),
+                                         didSelectEvent: PublishRelay<Void>())
     }
 
     override func tearDownWithError() throws {
@@ -32,11 +34,13 @@ class mainViewTests: XCTestCase {
     
     func testTriggerOnViewDidLoad() throws {
         
-        self.viewModel = MainViewModel()
+        self.viewModel = MainViewModel(service: WoopEventsServiceMock(behavior: .success), controller: UINavigationController())
         
-        let successObserver = scheduler.createObserver(MainViewModelDoubleBehavior.self)
+        let _ = viewModel.transform(input: input)
         
-        let _ = scheduler.createHotObservable([next(0, ())])
+        let successObserver = scheduler.createObserver(MainViewModelDoubleMockBehavior.self)
+        
+        let _ = scheduler.createHotObservable([.next(100, ())])
             .bind(to: self.input.onViewDidLoad)
             .disposed(by: disposeBag)
         
@@ -46,7 +50,7 @@ class mainViewTests: XCTestCase {
         
         scheduler.start()
         
-        XCTAssertEqual(successObserver.events, [.next(0, .success)])
+        XCTAssertEqual(successObserver.events, [.next(0, .none), .next(100, .success)])
         
     }
 

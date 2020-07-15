@@ -34,3 +34,18 @@ struct WoopEvent: Decodable {
     }
     
 }
+
+extension WoopEvent {
+    static func eventMock() -> Self {
+        .init(date: Date(),
+              image: "",
+              eventDescription: "",
+              people: [],
+              cupons: [],
+              price: 50,
+              eventId: "",
+              title: "",
+              longitude: 5,
+              latitude: 5)
+    }
+}
