@@ -99,7 +99,7 @@ class MainViewModel: ViewModelType {
                 self?.double.accept(.success)
                 self?.resetLoaderShouldAppear()
                 }, onError: { [weak self] _ in
-                    //TOAST ?
+                    self?.controller.visibleViewController?.view.makeToast("Erro ao obter informações dos eventos. Por favor, tente novamente.")
                     self?.double.accept(.error)
                     self?.resetLoaderShouldAppear()
             }).disposed(by: self.disposeBag)

@@ -41,12 +41,16 @@ class EventDetailView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isSelectable = false
+        textView.dataDetectorTypes = []
         textView.font = .systemFont(ofSize: 18)
         return textView
     }()
@@ -65,6 +69,28 @@ class EventDetailView: UIView {
         let btnImage = UIImage(named: "back_button")
         button.setImage(btnImage , for: .normal)
         return button
+    }()
+    
+    let footerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let checkinButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Fazer check-in", for: .normal)
+        button.backgroundColor = .darkGray
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
+    
+    let gradientView: GradientView = {
+        let view = GradientView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     // MARK: - Lifecycle methods
@@ -95,6 +121,9 @@ class EventDetailView: UIView {
         addSubview(backButton)
         addSubview(loaderParentView)
         loaderParentView.addSubview(loaderView)
+        addSubview(footerView)
+        footerView.addSubview(checkinButton)
+        addSubview(gradientView)
     }
     
     //MARK: - Constraints
@@ -107,6 +136,37 @@ class EventDetailView: UIView {
         setupBackButtonConstraints()
         setupLoaderParentViewConstraints()
         setupLoaderViewConstraints()
+        setupGradientViewConstraints()
+        setupCheckinButtonConstraints()
+        setupFooterViewConstraints()
+    }
+    
+    private func setupCheckinButtonConstraints() {
+        NSLayoutConstraint.activate([
+            checkinButton.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 38),
+            checkinButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -38),
+            checkinButton.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 20),
+            checkinButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -20),
+            checkinButton.heightAnchor.constraint(equalToConstant: 42)
+        ])
+    }
+    
+    private func setupFooterViewConstraints() {
+        NSLayoutConstraint.activate([
+            footerView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
+            footerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            footerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            footerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
+    
+    private func setupGradientViewConstraints() {
+        NSLayoutConstraint.activate([
+            gradientView.heightAnchor.constraint(equalToConstant: 10),
+            gradientView.bottomAnchor.constraint(equalTo: footerView.topAnchor),
+            gradientView.leadingAnchor.constraint(equalTo: footerView.leadingAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: footerView.trailingAnchor)
+        ])
     }
     
     private func setupLoaderViewConstraints() {
@@ -149,8 +209,7 @@ class EventDetailView: UIView {
         NSLayoutConstraint.activate([
             descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            descriptionTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25),
-            descriptionTextView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            descriptionTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25)
         ])
     }
     

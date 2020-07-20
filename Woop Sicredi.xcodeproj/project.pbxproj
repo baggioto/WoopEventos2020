@@ -12,6 +12,11 @@
 		D9053EF42468B855006A7DDE /* MainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9053EF32468B855006A7DDE /* MainViewTableViewCell.swift */; };
 		D923108924BE7945005A2DEC /* WoopSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923108824BE7945005A2DEC /* WoopSicrediTests.swift */; };
 		D923109224BF44BC005A2DEC /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923109124BF44BC005A2DEC /* RxExtensions.swift */; };
+		D926B8F024C5310C002F23D9 /* UIVIewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926B8EF24C5310C002F23D9 /* UIVIewExtensions.swift */; };
+		D926B8F324C5CE3B002F23D9 /* CheckinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926B8F224C5CE3B002F23D9 /* CheckinView.swift */; };
+		D926B8F524C5CE65002F23D9 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926B8F424C5CE65002F23D9 /* CheckinViewController.swift */; };
+		D926B8F724C5CE9B002F23D9 /* CheckinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926B8F624C5CE9B002F23D9 /* CheckinViewModel.swift */; };
+		D926B8F924C61D78002F23D9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D926B8F824C61D78002F23D9 /* StringExtensions.swift */; };
 		D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DAFE245F737B001B0923 /* AppDelegate.swift */; };
 		D933DB03245F737B001B0923 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D933DB02245F737B001B0923 /* MainViewController.swift */; };
 		D933DB08245F737C001B0923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D933DB07245F737C001B0923 /* Assets.xcassets */; };
@@ -52,6 +57,11 @@
 		D923108824BE7945005A2DEC /* WoopSicrediTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoopSicrediTests.swift; sourceTree = "<group>"; };
 		D923108A24BE7945005A2DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D923109124BF44BC005A2DEC /* RxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
+		D926B8EF24C5310C002F23D9 /* UIVIewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewExtensions.swift; sourceTree = "<group>"; };
+		D926B8F224C5CE3B002F23D9 /* CheckinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinView.swift; sourceTree = "<group>"; };
+		D926B8F424C5CE65002F23D9 /* CheckinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		D926B8F624C5CE9B002F23D9 /* CheckinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewModel.swift; sourceTree = "<group>"; };
+		D926B8F824C61D78002F23D9 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D933DAFB245F737B001B0923 /* Woop Sicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Woop Sicredi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D933DAFE245F737B001B0923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D933DB02245F737B001B0923 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +134,16 @@
 			path = WoopSicrediTests;
 			sourceTree = "<group>";
 		};
+		D926B8F124C5CE15002F23D9 /* Checkin */ = {
+			isa = PBXGroup;
+			children = (
+				D926B8F224C5CE3B002F23D9 /* CheckinView.swift */,
+				D926B8F424C5CE65002F23D9 /* CheckinViewController.swift */,
+				D926B8F624C5CE9B002F23D9 /* CheckinViewModel.swift */,
+			);
+			path = Checkin;
+			sourceTree = "<group>";
+		};
 		D933DAF2245F737B001B0923 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +182,7 @@
 		D933DB12245F76F3001B0923 /* Controllers and Views */ = {
 			isa = PBXGroup;
 			children = (
+				D926B8F124C5CE15002F23D9 /* Checkin */,
 				D9D1AB132468E7AC00E54063 /* EventDetail */,
 				D9053EF22468B82B006A7DDE /* CustomViews */,
 				D933DB13245F7707001B0923 /* Main */,
@@ -193,6 +214,8 @@
 			children = (
 				D9D1AB1A24690B1700E54063 /* UIButtonExtensions.swift */,
 				D923109124BF44BC005A2DEC /* RxExtensions.swift */,
+				D926B8EF24C5310C002F23D9 /* UIVIewExtensions.swift */,
+				D926B8F824C61D78002F23D9 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,11 +427,16 @@
 			files = (
 				D9DB5A7E245F97260078AA87 /* Cupon.swift in Sources */,
 				D923109224BF44BC005A2DEC /* RxExtensions.swift in Sources */,
+				D926B8F324C5CE3B002F23D9 /* CheckinView.swift in Sources */,
+				D926B8F924C61D78002F23D9 /* StringExtensions.swift in Sources */,
+				D926B8F524C5CE65002F23D9 /* CheckinViewController.swift in Sources */,
 				D9D1AB172468E87400E54063 /* EventDetailViewController.swift in Sources */,
 				D933DB03245F737B001B0923 /* MainViewController.swift in Sources */,
 				D933DB15245F7721001B0923 /* MainView.swift in Sources */,
+				D926B8F024C5310C002F23D9 /* UIVIewExtensions.swift in Sources */,
 				D9DB5A80245F97FF0078AA87 /* WoopEvent.swift in Sources */,
 				D9D1AB1B24690B1700E54063 /* UIButtonExtensions.swift in Sources */,
+				D926B8F724C5CE9B002F23D9 /* CheckinViewModel.swift in Sources */,
 				D933DAFF245F737B001B0923 /* AppDelegate.swift in Sources */,
 				D9DB5A862460344D0078AA87 /* MainViewModel.swift in Sources */,
 				D9D1AB122468D5AC00E54063 /* MainTableViewHeader.swift in Sources */,

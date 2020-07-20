@@ -203,7 +203,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxDataSources-framework/RxDataSources.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxTest-framework/RxTest.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON-framework/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Toast-Swift-framework/Toast_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-framework/Alamofire.framework"
@@ -212,7 +214,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxDataSources-framework/RxDataSources.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxTest-framework/RxTest.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON-framework/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Toast-Swift-framework/Toast_Swift.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

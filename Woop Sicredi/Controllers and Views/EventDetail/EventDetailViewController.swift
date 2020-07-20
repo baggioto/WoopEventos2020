@@ -16,13 +16,15 @@ class EventDetailViewController: UIViewController{
     
     private var shareButtonPressed = PublishRelay<Void>()
     private var backButtonPressed = PublishRelay<Void>()
+    private var checkinButtonPressed = PublishRelay<Void>()
     private var onViewDidLoad = PublishRelay<Void>()
     
     var viewModel: EventDetailViewModel!
     lazy var viewModelOutput: EventDetailViewModel.Output = {
-        let input = EventDetailViewModel.Input(onViewDidLoad: self.onViewDidLoad,
-                                               backButtonPressed: self.backButtonPressed,
-                                               shareButtonPressed: self.shareButtonPressed)
+        let input = EventDetailViewModel.Input(onViewDidLoad: onViewDidLoad,
+                                               checkinButtonPressed: checkinButtonPressed,
+                                               backButtonPressed: backButtonPressed,
+                                               shareButtonPressed: shareButtonPressed)
         
         return viewModel.transform(input: input)
     }()
@@ -48,7 +50,6 @@ class EventDetailViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(viewModelOutput)
-        
         setupBinding()
         onViewDidLoad.accept(())
     }
@@ -78,6 +79,16 @@ class EventDetailViewController: UIViewController{
         setupShareBindings()
         setupBackButtonBindings()
         setupLoaderViewBindings()
+        setupCheckinBindings()
+        setupImageBinding()
+    }
+    
+    private func setupCheckinBindings() {
+        customView
+            .checkinButton
+            .rx.tap
+            .bind(to: checkinButtonPressed)
+            .disposed(by: disposeBag)
     }
     
     private func setupLoaderViewBindings() {
@@ -117,28 +128,25 @@ class EventDetailViewController: UIViewController{
             .disposed(by: disposeBag)
     }
     
+    private func setupImageBinding() {
+        viewModel
+            .backgroundImage
+            .asObservable()
+            .ignoreNil()
+            .bind(to: customView.backgroundImage.rx.image)
+            .disposed(by: disposeBag)
+    }
+    
     private func setupViewChangesBindings() {
         viewModel
             .event
             .asObservable()
-            .subscribe(onNext: { [weak self] model in
-                guard let modelValue = model else {
-                    return
-                }
-                self?.changeViewBasedOnEvent(modelValue)
-            }).disposed(by: disposeBag)
+            .ignoreNil()
+            .subscribe(onNext: changeViewBasedOnEvent)
+            .disposed(by: disposeBag)
     }
     
     private func changeViewBasedOnEvent(_ event: WoopEvent) {
-        guard let correctURL = URL(string: event.image) else {
-            return
-        }
-        
-        if let loadedImage = try? UIImage(data: Data(contentsOf: correctURL)) {
-            customView
-                .backgroundImage
-                .image = loadedImage
-        }
         
         customView
             .titleLabel

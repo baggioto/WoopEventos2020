@@ -14,6 +14,7 @@ PODS:
   - RxTest (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - SwiftyJSON (4.3.0)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - RxSwift (~> 4.0)
   - RxTest
   - SwiftyJSON (~> 4.0)
+  - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
@@ -35,6 +37,7 @@ SPEC REPOS:
     - RxSwift
     - RxTest
     - SwiftyJSON
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
@@ -46,7 +49,8 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   RxTest: 3ccb66bfbace0bf7df1c43a7c75d046f8ce60372
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: ae54874ef0ff1f07db1f7c3ae6eadb0d8ec0fa9e
+PODFILE CHECKSUM: e2892b8419d567dba8954a930436904786f7906f
 
 COCOAPODS: 1.9.1

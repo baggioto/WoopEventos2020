@@ -84,7 +84,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RxTest.xcscheme</key>
+		<key>RxTest-framework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxTest-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -95,6 +100,16 @@
 			<false/>
 		</dict>
 		<key>SwiftyJSON-library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Toast-Swift-framework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Toast-Swift-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

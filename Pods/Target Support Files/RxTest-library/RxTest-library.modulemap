@@ -1,5 +1,5 @@
 module RxTest {
-  umbrella header "RxTest-umbrella.h"
+  umbrella header "RxTest-library-umbrella.h"
 
   export *
   module * { export * }

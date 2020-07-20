@@ -18,6 +18,7 @@ enum FailureReason: Int, Error {
 protocol WoopEventsServiceProtocol {
     func getDetailedEvent(eventId: Int) -> Observable<WoopEvent>
     func getEvents() -> Observable<[WoopEvent]>
+    func checkin(name: String, email: String, event: WoopEvent) -> Observable<Bool>
 }
 
 class WoopEventsService: WoopEventsServiceProtocol {
@@ -34,6 +35,51 @@ class WoopEventsService: WoopEventsServiceProtocol {
     
     private var eventDetailApiUrl: String {
         "\(baseApiUrl)/events/%d"
+    }
+    
+    private var checkinApiUrl: String {
+        "\(baseApiUrl)/checkin"
+    }
+    
+    public func checkin(name: String, email: String, event: WoopEvent) -> Observable<Bool> {
+        return Observable.create { [weak self] observer -> Disposable in
+            
+            guard let checkinUrl = self?.checkinApiUrl else {
+                return Disposables.create()
+            }
+            
+            let params: Parameters = [
+                "eventId": event.eventId,
+                "name": name,
+                "email": email
+            ]
+            
+            Alamofire.request(checkinUrl, method: .post, parameters: params)
+                .validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        guard let data = response.data else {
+                            observer.onError(response.error ?? FailureReason.notFound)
+                            return
+                        }
+                        do {
+                            let event = try JSONDecoder().decode(Bool.self, from: data)
+                            observer.onNext(event)
+                        } catch {
+                            observer.onError(error)
+                        }
+                    case .failure(let error):
+                        if let statusCode = response.response?.statusCode,
+                            let reason = FailureReason(rawValue: statusCode)
+                        {
+                            observer.onError(reason)
+                        }
+                        observer.onError(error)
+                    }
+            }
+            return Disposables.create()
+        }
     }
     
     public func getDetailedEvent(eventId: Int) -> Observable<WoopEvent> {
@@ -135,6 +181,15 @@ final class WoopEventsServiceMock: WoopEventsServiceProtocol {
         switch behavior {
         case .success:
             return .just([WoopEvent.eventMock()])
+        default:
+            return .error(FailureReason.unAuthorized)
+        }
+    }
+    
+    func checkin(name: String, email: String, event: WoopEvent) -> Observable<Bool> {
+        switch behavior {
+        case .success:
+            return Observable.of(true)
         default:
             return .error(FailureReason.unAuthorized)
         }
