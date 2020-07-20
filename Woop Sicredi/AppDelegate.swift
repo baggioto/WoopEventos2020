@@ -12,14 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let service = WoopEventsService()
+    let navController = UINavigationController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        let navController = UINavigationController()
-        let viewModel = MainViewModel(service: WoopEventsService(), controller: navController)
+        let viewModel = MainViewModel(service: service, controller: navController)
         let controller = MainViewController(viewModel: viewModel)
         
         navController.addChild(controller)

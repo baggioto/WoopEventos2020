@@ -37,8 +37,13 @@ class WoopEventsService: WoopEventsServiceProtocol {
     }
     
     public func getDetailedEvent(eventId: Int) -> Observable<WoopEvent> {
-        return Observable.create { observer -> Disposable in
-            Alamofire.request(String(format: self.eventDetailApiUrl, eventId))
+        return Observable.create { [weak self] observer -> Disposable in
+            
+            guard let eventUrl = self?.eventDetailApiUrl else {
+                return Disposables.create()
+            }
+            
+            Alamofire.request(String(format: eventUrl, eventId))
                 .validate()
                 .responseJSON { response in
                     switch response.result {
@@ -67,8 +72,13 @@ class WoopEventsService: WoopEventsServiceProtocol {
     }
     
     public func getEvents() -> Observable<[WoopEvent]> {
-        return Observable.create { observer -> Disposable in
-            Alamofire.request(self.eventsApiUrl)
+        return Observable.create { [weak self] observer -> Disposable in
+            
+            guard let eventApiUrl = self?.eventsApiUrl else {
+                return Disposables.create()
+            }
+            
+            Alamofire.request(eventApiUrl)
                 .validate()
                 .responseJSON { response in
                     switch response.result {
